@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    char nome[30];
+    int idade, anoDeNascimento;
+    float altura;
+    char cpf[15]; 
+    bool maiorDeIdade;
+
+    
+    printf("Digite seu nome: ");
+    fgets(nome, sizeof(nome), stdin);
+    
+    
+    nome[strcspn(nome, "\n")] = '\0';
+    
+    
+    printf("Digite seu ano de nascimento: ");
+    scanf("%d", &anoDeNascimento);
+    
+    
+    idade = 2024 - anoDeNascimento;
+    
+    
+    maiorDeIdade = (idade >= 18);
+    
+    
+    printf("Digite sua altura (em metros): ");
+    scanf("%f", &altura);
+    
+    
+    while (getchar() != '\n');
+
+    
+    printf("Digite seu CPF (somente números, sem pontos e hífen): ");
+    fgets(cpf, sizeof(cpf), stdin);
+    
+    
+    cpf[strcspn(cpf, "\n")] = '\0';
+    
+    
+    
+    printf("\nNome: %s\n", nome);
+    printf("CPF: %c%c%c.%c%c%c.%c%c%c-%c%c\n",
+        cpf[0], cpf[1], cpf[2],
+        cpf[3], cpf[4], cpf[5],
+        cpf[6], cpf[7], cpf[8],
+        cpf[9], cpf[10]);
+    printf("Idade: %d anos\n", idade);
+    printf("Maior de idade: %s\n", maiorDeIdade ? "Sim" : "Não");
+    printf("Altura: %.2f metros\n", altura);
+    
+    return 0;
+}
